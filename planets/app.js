@@ -82,9 +82,9 @@ const Planet = props => {
   return (
     <div className="card">
       <div>
-        <img src={props.pimg} alt={props.pname} />
+        <img src={props.url} alt={props.pname} />
       </div>
-      <h2>{props.pname}</h2>
+      <h2>{props.name}</h2>
       <p>{props.desc}</p>
       <h3>Planet Profile</h3>
       <ul>
@@ -105,14 +105,7 @@ const App = props => {
   return (
     <div className="container">
       {props.planetsArray.map(planet => (
-        <Planet
-          key={planet.id}
-          pname={planet.name}
-          diameter={planet.diameter}
-          moons={planet.moons}
-          desc={planet.desc}
-          pimg={planet.url}
-        />
+        <Planet key={planet.id} {...planet} />
       ))}
     </div>
   );
