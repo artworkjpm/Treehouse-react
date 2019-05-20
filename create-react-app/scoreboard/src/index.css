@@ -1,9 +1,13 @@
 /* ELEMENT STYLES -------------------- */
+html{
+  outline: 0;
+}
 body {
   background: #e8e7e7; 
   font-family: arial;
   text-transform: uppercase;
 }
+
 
 header {
   color: #FFF;
@@ -238,3 +242,10 @@ svg {
     font-size: 2em;
     line-height: 2em;
   }
+
+  :focus, :active {
+    outline: none !important;
+    border: none !important;
+    box-shadow:none !important;
+}
+
