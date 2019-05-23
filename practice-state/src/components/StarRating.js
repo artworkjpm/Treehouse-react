@@ -6,38 +6,26 @@ class StarRating extends Component {
     rating: 0
   };
 
-  // Write a function that returns 5 Star components
   renderStars = () => {
-    let stars = [];
-
+    let starArray = [];
     for (let i = 0; i < 5; i++) {
-      stars.push(
+      starArray.push(
         <Star
           key={i}
-          onHandleRating={() => this.handleUpdateRating(i + 1)}
-          toggleClass={this.state.rating > i}
+          onHandleRating={() => {
+            this.handleRating(i + 1);
+          }}
         />
       );
-      console.log("i:" + i, "rating:" + this.state.rating);
     }
-    console.log(stars);
-    return stars;
-  };
-  //loop and push method to push stars to an array, render the stars to the dom
-
-  // Write an event handler that updates the rating state.
-  // Pass the function to a Star component via props
-
-  handleUpdateRating = rating => {
-    if (this.state.rating === rating) {
-      this.setState({ rating: 0 });
-    } else {
-      this.setState({
-        rating: rating
-      });
-    }
+    return starArray;
   };
 
+  handleRating = rating => {
+    this.setState({
+      rating: rating
+    });
+  };
   render() {
     return <ul className="course--stars">{this.renderStars()}</ul>;
   }
