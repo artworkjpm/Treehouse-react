@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import Star from './Star';
+import Star from "./Star";
 
 class StarRating extends Component {
+  state = {
+    rating: 0
+  };
 
-  // Initialize a 'rating' state
-
-
-<<<<<<< HEAD
   renderStars = () => {
     let starArray = [];
     for (let i = 0; i < 5; i++) {
@@ -27,21 +26,8 @@ class StarRating extends Component {
       rating: rating
     });
   };
-=======
-  // Write a function that returns 5 Star components
-
-
-  // Write an event handler that updates the rating state.
-  // Pass the function to a Star component via props
-
-
->>>>>>> parent of df74ca3... solutioned
   render() {
-    return (
-      <ul className="course--stars">
-        {/* Render the Star components */}
-      </ul>
-    );
+    return <ul className="course--stars">{this.renderStars()}</ul>;
   }
 }
 
