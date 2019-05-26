@@ -36,7 +36,6 @@ class App extends Component {
     this.setState(prevState => ({
       score: (prevState.players[index].score += delta)
     }));
-    //console.log("index: " + index, "delta: " + delta);
   };
 
   handleAddPlayer = name => {
@@ -47,7 +46,8 @@ class App extends Component {
           {
             name: name,
             score: 0,
-            id: (this.prevPlayerId += 1)
+            id: (this.prevPlayerId += 1),
+            showCrown: false
           }
         ]
       };
@@ -62,14 +62,40 @@ class App extends Component {
     });
   };
 
+  getHighScore = () => {
+    // First, filter through the players state to get all the player scores
+    const scores = this.state.players.map(p => p.score);
+    console.log(scores);
+    //Use Math.max() to return the largest score value. All scores are passed to Math.max() via the spread operator (...scores)
+    const highScore = Math.max(...scores);
+    console.log({ highScore });
+    //Then check: if there's a highest score (a score greater than 0), return that score
+    if (highScore > 0) {
+      return highScore;
+    }
+    //Otherwise, return null because there is no high score
+    return null;
+  };
+
   render() {
+    const highScore = this.getHighScore();
     return (
       <div className="scoreboard">
         <Header totalPlayers={this.state.players} />
 
         {/* Players list */}
         {this.state.players.map((player, index) => (
-          <Player name={player.name} index={index} id={player.id} key={player.id.toString()} removePlayer={this.handleRemovePlayer} score={player.score} changeScore={this.handleScoreChange} />
+          <Player
+            name={player.name}
+            index={index}
+            id={player.id}
+            key={player.id.toString()}
+            removePlayer={this.handleRemovePlayer}
+            score={player.score}
+            changeScore={this.handleScoreChange}
+            //isHighScore is an expression that returns true if a player's score is equal to the high score, and false if it's not
+            isHighScore={player.score === highScore}
+          />
         ))}
         <AddPlayerForm addPlayer={this.handleAddPlayer} />
       </div>

@@ -13,7 +13,7 @@ const Header = ({ totalPlayers, title }) => {
   );
 };
 
-Header.PropTypes = {
+Header.propTypes = {
   title: PropTypes.string,
   totalPlayers: PropTypes.arrayOf(PropTypes.object)
 };

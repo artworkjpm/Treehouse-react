@@ -22,7 +22,7 @@ const Stats = ({ totalPlayers }) => {
   );
 };
 
-Stats.PropTypes = {
+Stats.propTypes = {
   totalPlayers: PropTypes.arrayOf(
     PropTypes.shape({
       score: PropTypes.number

@@ -17,7 +17,7 @@ const Counter = ({ changeScore, score, index }) => {
   );
 };
 
-Counter.PropTypes = {
+Counter.propTypes = {
   index: PropTypes.number,
   score: PropTypes.number,
   changeScore: PropTypes.func
