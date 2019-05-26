@@ -1,6 +1,13 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class Stopwatch extends Component {
+  static Proptypes = {
+    handleStopwatch: PropTypes.func,
+    handleReset: PropTypes.func,
+    seconds: PropTypes.number
+  };
+
   state = {
     isRunning: false,
     elapsedTime: 0,
