@@ -11,7 +11,7 @@ class Player extends PureComponent {
     id: PropTypes.number
   };
   render() {
-    const { name, score, index, id, isHighScore } = this.props;
+    const { name, score, index, id } = this.props;
     return (
       <div className="player">
         <Consumer>
@@ -23,7 +23,7 @@ class Player extends PureComponent {
               >
                 ✖{" "}
               </button>
-              <Icon isHighScore={isHighScore} />
+              <Icon isHighScore={score === context.actions.highScore()} />
               {name}
             </span>
           )}
