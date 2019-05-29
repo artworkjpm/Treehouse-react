@@ -6,30 +6,30 @@ import Icon from "./Icon";
 
 class Player extends PureComponent {
   static propTypes = {
-    name: PropTypes.string.isRequired,
-    index: PropTypes.number,
-    id: PropTypes.number
+    index: PropTypes.number
   };
   render() {
-    const { name, score, index, id } = this.props;
+    const { index } = this.props;
     return (
       <div className="player">
         <Consumer>
-          {context => (
+          {({ actions, players }) => (
             <span className="player-name">
               <button
                 className="remove-player"
-                onClick={() => context.actions.removePlayer(id)}
+                onClick={() => actions.removePlayer(players[index].id)}
               >
                 ✖{" "}
               </button>
-              <Icon isHighScore={score === context.actions.highScore()} />
-              {name}
+              <Icon
+                isHighScore={players[index].score === actions.highScore()}
+              />
+              {players[index].name}
             </span>
           )}
         </Consumer>
 
-        <Counter score={score} index={index} />
+        <Counter index={index} />
       </div>
     );
   }
