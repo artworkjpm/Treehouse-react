@@ -6,3 +6,6 @@ practice-state/public/.DS_Store
 practice-state/public/img/.DS_Store
 practice-state/yarn.lock
 practice-state/src/.DS_Store
+apis/.DS_Store
+apis/node_modules/
+create-react-app/node_modules
