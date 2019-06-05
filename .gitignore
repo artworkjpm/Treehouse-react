@@ -9,3 +9,5 @@ practice-state/src/.DS_Store
 apis/.DS_Store
 apis/node_modules/
 create-react-app/node_modules
+react-router/node_modules
+react-router/.DS_Store
