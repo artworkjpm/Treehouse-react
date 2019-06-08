@@ -11,3 +11,5 @@ apis/node_modules/
 create-react-app/node_modules
 react-router/node_modules
 react-router/.DS_Store
+redux-course/.DS_Store
+redux-course/node_modules
